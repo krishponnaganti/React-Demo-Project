@@ -43,7 +43,7 @@ function Home(props) {
       <Card bg="light" text="dark" style={{ width: "" }} className="mb-2">
         <Card.Header>Skills</Card.Header>
         <Card.Body>
-          <Card.Title>Technogies</Card.Title>
+          <Card.Title>Technologies</Card.Title>
           <Card.Text>
             {skills.map((skill) => (
               <div>{skill}</div>
