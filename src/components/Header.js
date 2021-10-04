@@ -10,22 +10,18 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
-import Experience from "../components/Experience";
-import Blog from "../components/Blog";
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Welcome from "../components/Welcome";
+
 import ErrorBoundary from "../components/ErrorBoundary";
-import Sample from "../components/Sample";
-import AppWrapper from "../components/SignUp";
+const Experience=React.lazy(()=>import("../components/Experience"))
+const Blog =React.lazy(()=>import("../components/Blog"))
+const About = React.lazy(() => import("../components/About"));
+const Projects = React.lazy(()=>import("../components/Projects"));
+const Welcome = React.lazy(() => import("../components/Welcome"));
+const Sample = React.lazy(() => import("../components/Sample"));
+const AppWrapper = React.lazy(() => import("../components/SignUp"));
 const Testimonial = React.lazy(() => import("../components/Testimonial"));
 const Header = (props) => {
   const classStyle = () => ({
@@ -35,7 +31,7 @@ const Header = (props) => {
     },
   });
   const getClassStyle = classStyle();
-  
+
   //  let match = useRouteMatch("/home/:slug");
   //  console.log("matching..");
   //  console.log(match);
@@ -90,9 +86,21 @@ const Header = (props) => {
                   Testimonial
                 </Link>
               </Nav.Link>
+            </Nav>
+            <Nav
+              className="ml-auto"
+              variant="pills"
+              activeKey={active}
+              onSelect={(selectedKey) => setActiveMenu(selectedKey)}
+            >
               <Nav.Link eventKey="signup">
                 <Link to="/signup" style={getClassStyle.removeTextDecoration}>
-                  Sign-Up
+                  Sign up
+                </Link>
+              </Nav.Link>
+              <Nav.Link eventKey="signin">
+                <Link to="/signin" style={getClassStyle.removeTextDecoration}>
+                  Sign in
                 </Link>
               </Nav.Link>
             </Nav>

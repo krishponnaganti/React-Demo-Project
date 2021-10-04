@@ -153,7 +153,7 @@ const SignUp = (props) => {
   const formEl = useRef();
   return (
     <div
-      className="container mb-2"
+      className="container m-2"
       style={{ display: "block", justifyContent: "center" }}
     >
       <Alert
@@ -230,7 +230,7 @@ const SignUp = (props) => {
           </Form.Text>
         </Form.Group>
         <Button type="submit" disabled={!formValid.isValid}>
-          Sign in
+          Sign up
         </Button>
       </Form>
       {/* {inputVals.password} -{inputVals.confirm_password} */}

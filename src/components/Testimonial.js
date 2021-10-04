@@ -5,7 +5,7 @@ import { Card, Button } from "react-bootstrap";
 import AddTestimonial from "../components/AddTestimonial";
 const Testimonial = () => {
   const [testimonialsAvail, setTestimonials] = useState([{}]);
-  const [showTestiCards,setTestiCards] =useState(false);
+  const [showTestiCards, setTestiCards] = useState(false);
   var randNum = 0;
   const [testimonial_one, setSingleTestimonial] = useState({});
   const [randNums, setIntervalCust] = useState(0);
@@ -23,47 +23,40 @@ const Testimonial = () => {
       .get("http://localhost/reactjs/apis/getTestimonials.php", options)
       .then((res) => {
         if (res.data.testimonials) {
-          
           setTestimonials(res.data.testimonials);
-         
         }
       });
     // var i = 0;
-    
+
     /* return () => {
       setTestimonials([{}]); // This worked for me
     }; */
   }, []);
 
-
   useEffect(() => {
     if (testimonialsAvail.length) {
       console.log("working..");
       console.log(testimonialsAvail);
-      
+
       const interval_1 = setInterval(() => {
         randNum = Math.floor(Math.random() * testimonialsAvail.length);
         setSingleTestimonial(testimonialsAvail[randNum]);
       }, 5000);
-      
+
       return () => {
         console.log("cleared");
         clearInterval(interval_1);
       };
     }
-    
   }, [testimonialsAvail]);
-  
-  useEffect(()=>{
 
-    if (Object.keys(testimonial_one)!=0) {
+  useEffect(() => {
+    if (Object.keys(testimonial_one) != 0) {
       console.log("not undefined" + testimonial_one);
       console.log(testimonial_one);
       setTestiCards(true);
     }
-        
-
-  },[testimonial_one])
+  }, [testimonial_one]);
   const submitTestimonial = (event) => {
     event.preventDefault();
     // event.stopPropegation();
@@ -89,7 +82,7 @@ const Testimonial = () => {
         console.log(res);
         if (res.status == 200) {
           if (res.data.status == "success") {
-             setTestimonials([{ ...formData }, ...testimonialsAvail]);
+            setTestimonials([{ ...formData }, ...testimonialsAvail]);
             alert(
               "Your tesimonial submitted successfully.Thanks for showing interest.."
             );
@@ -119,12 +112,12 @@ const Testimonial = () => {
         className="container m-2"
         style={{ display: "block", justifyContent: "center" }}
       >
-        <div>
+        
           <AddTestimonial
             handleSubmitTestimonial={submitTestimonial}
             handleInputVals={setInputVals}
           />
-        </div>
+        
         <div className="row m-5">
           <Card style={{ width: "60rem" }}>
             <Card.Header>Testimonial</Card.Header>
