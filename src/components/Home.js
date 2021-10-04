@@ -1,5 +1,13 @@
 import { Card, Row, CardColumns, Col } from "react-bootstrap";
+import { useRouteMatch } from "react-router-dom";
+
 function Home(props) {
+  const matchs = useRouteMatch({
+    path: "/home",
+    strict: true,
+    sensitive: true,
+  });
+  console.log(matchs);
   const skills = [
     "HTML",
     "CSS",

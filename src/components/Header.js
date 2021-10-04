@@ -14,9 +14,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useHistory,
-  useLocation,
+  Link
 } from "react-router-dom";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
@@ -37,6 +35,10 @@ const Header = (props) => {
     },
   });
   const getClassStyle = classStyle();
+  
+  //  let match = useRouteMatch("/home/:slug");
+  //  console.log("matching..");
+  //  console.log(match);
 
   const pathUrl = window.location.pathname.replace("/", "");
   const [active, setActiveMenu] = useState(pathUrl);
