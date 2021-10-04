@@ -23,6 +23,7 @@ const Welcome = React.lazy(() => import("../components/Welcome"));
 const Sample = React.lazy(() => import("../components/Sample"));
 const AppWrapper = React.lazy(() => import("../components/SignUp"));
 const Testimonial = React.lazy(() => import("../components/Testimonial"));
+const NotFound = React.lazy(() => import("../components/NotFound"));
 const Header = (props) => {
   const classStyle = () => ({
     removeTextDecoration: {
@@ -110,7 +111,7 @@ const Header = (props) => {
       <div className="row">
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/" component={Welcome}>
+            <Route exact path="/" >
               <Welcome />
             </Route>
             <Route path="/testimonial">
@@ -119,15 +120,15 @@ const Header = (props) => {
             {/* <Route path="/home">
                     <Home />
                   </Route> */}
-            <Route path="/home" component={Home}>
+            <Route path="/home" >
               <ErrorBoundary>
                 <Home />
               </ErrorBoundary>
             </Route>
-            <Route path="/about" component={About}>
+            <Route path="/about" >
               <About />
             </Route>
-            <Route path="/experience" component={Experience}>
+            <Route path="/experience" >
               <Experience />
             </Route>
             <Route path="/blog">
@@ -139,6 +140,7 @@ const Header = (props) => {
             <Route path="/signup">
               <AppWrapper />
             </Route>
+            <Route path="*" component={NotFound} />
           </Switch>
         </Suspense>
       </div>
