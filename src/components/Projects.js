@@ -96,7 +96,12 @@ const Projects = () => {
      
       projects.map((project) => {
         return (
-          <Card>
+          <Card
+            bg="secondary"
+            text="light"
+            style={{ width: "" }}
+            className="m-2"
+          >
             <Card.Header>PROJECT {i++}</Card.Header>
             <Card.Body>
               <Card.Title>{project.title}</Card.Title>
@@ -106,12 +111,16 @@ const Projects = () => {
               <Card.Text>
                 Techonologies involved: {project.technologies.join(" | ")}
               </Card.Text>
-              <Card.Text>Role and responsibility: 
-                 {project.roles.map((role)=><li>{role}</li>)}
+              <Card.Text>
+                Role and responsibility:
+                {project.roles.map((role) => (
+                  <li>{role}</li>
+                ))}
               </Card.Text>
-              <Card.Text>Description: 
+              <Card.Text>
+                Description:
                 {project.description}
-                </Card.Text>
+              </Card.Text>
               <Card.Link href={project.link}>{project.title}</Card.Link>
             </Card.Body>
           </Card>

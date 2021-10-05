@@ -1,6 +1,6 @@
 import { Card, Row, CardColumns, Col } from "react-bootstrap";
 import { useRouteMatch } from "react-router-dom";
-
+import  Box from "@material-ui/core/Box";
 function Home(props) {
   const matchs = useRouteMatch({
     path: "/home",
@@ -40,32 +40,43 @@ function Home(props) {
   ];
   return (
     <>
-      <Card bg="light" text="dark" style={{ width: "" }} className="mb-2">
-        <Card.Header>Skills</Card.Header>
-        <Card.Body>
-          <Card.Title>Technologies</Card.Title>
-          <Card.Text>
-            {skills.map((skill) => (
-              <div>{skill}</div>
-            ))}
-          </Card.Text>
-        </Card.Body>
-      </Card>
-      <Card bg="light" text="dark" style={{ width: "" }} className="mb-2">
-        <Card.Header>Certifications</Card.Header>
-        {certifications.map((cert) => {
-          return (
-            <Card.Body>
-              <Card.Title>{cert.title}</Card.Title>
-              <Card.Subtitle>{cert.certBy}</Card.Subtitle>
-              <Card.Text>
-                Credentials :  
-                <Card.Link href={cert.creds}>View</Card.Link>
-              </Card.Text>
-            </Card.Body>
-          );
-        })}
-      </Card>
+      <div>
+        <Card
+          bg="secondary"
+          text="light"
+          style={{ width: "" }}
+          className="m-2"
+        >
+          <Card.Header>Skills</Card.Header>
+          <Card.Body>
+            <Card.Title>Technologies</Card.Title>
+            <Card.Text>
+              {skills.map((skill) => (
+                <div>{skill}</div>
+              ))}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card
+          bg="secondary"
+          text="light"
+          style={{ width: "" }}
+          className="m-2"
+        >
+          <Card.Header>Certifications</Card.Header>
+          {certifications.map((cert) => {
+            return (
+              <Card.Body>
+                <Card.Title>{cert.title}</Card.Title>
+                <Card.Subtitle>{cert.certBy}</Card.Subtitle>
+                <Card.Text>
+                  Credentials :<Card.Link href={cert.creds}>View</Card.Link>
+                </Card.Text>
+              </Card.Body>
+            );
+          })}
+        </Card>
+      </div>
     </>
   );
 }

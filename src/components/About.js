@@ -21,7 +21,12 @@ const About = () => {
      <div>{experienceData.map((exp) => 
       {
        return (
-         <Card bg="light" text="dark" style={{ width: "" }} className="mb-2">
+         <Card
+           bg="secondary"
+           text="light"
+           style={{ width: "" }}
+           className="m-2"
+         >
            <Card.Header>Working at {exp.company}.</Card.Header>
            <Card.Body>
              <Card.Title>Role</Card.Title>
