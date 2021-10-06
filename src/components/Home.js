@@ -1,6 +1,6 @@
 import { Card, Row, CardColumns, Col } from "react-bootstrap";
 import { useRouteMatch } from "react-router-dom";
-import  Box from "@material-ui/core/Box";
+import Box from "@material-ui/core/Box";
 function Home(props) {
   const matchs = useRouteMatch({
     path: "/home",
@@ -41,12 +41,7 @@ function Home(props) {
   return (
     <>
       <div>
-        <Card
-          bg="secondary"
-          text="light"
-          style={{ width: "" }}
-          className="m-2"
-        >
+        <Card bg="secondary" text="light" style={{ width: "" }} className="m-2">
           <Card.Header>Skills</Card.Header>
           <Card.Body>
             <Card.Title>Technologies</Card.Title>
@@ -57,12 +52,7 @@ function Home(props) {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card
-          bg="secondary"
-          text="light"
-          style={{ width: "" }}
-          className="m-2"
-        >
+        <Card bg="secondary" text="light" style={{ width: "" }} className="m-2">
           <Card.Header>Certifications</Card.Header>
           {certifications.map((cert) => {
             return (
