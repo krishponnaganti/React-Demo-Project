@@ -61,7 +61,7 @@ const Header = (props) => {
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
           <Container>
             <Navbar.Brand>
-              <span className="m-1"> S G A R K PONNAGANTI</span>
+              <span className="m-1"> S G A R K PONNAGANTI..</span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
