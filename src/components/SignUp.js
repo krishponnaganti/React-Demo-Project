@@ -3,9 +3,12 @@ import ReduxThunk from "redux-thunk";
 import { connect, Provider } from "react-redux";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router";
+import axios from "axios";
 //redux
 const SIGNUP = "SIGN-UP";
 const SUBMIT = "SUBMIT";
+const RESET = "RESET";
 const authReducer = (state = { login: false }, action) => {
   if (action.type == SIGNUP) {
     return { login: true };
@@ -15,7 +18,7 @@ const authReducer = (state = { login: false }, action) => {
 const authActionReducer = (
   state = {
     authSubmit: false,
-    fname: "",
+    first_name: "",
     email: "",
     mobile: "",
     password: "",
@@ -28,12 +31,15 @@ const authActionReducer = (
 
     return {
       authSubmit: true,
-      fname: action.fname,
+      first_name: action.first_name,
       email: action.email,
       mobile: action.mobile,
       password: action.password,
       confirm_password: action.confirm_password,
     };
+  }
+  if (action.type == RESET) {
+    return { authSubmit: false };
   }
   return state;
 };
@@ -45,11 +51,15 @@ const signUpAction = {
 const authSubmitForm = {
   type: SUBMIT,
 };
+const authReset = {
+  type: RESET,
+};
 const signUpActionCreator = () => {
   return signUpAction;
 };
+
 const authSubmitActionCreator = (
-  fname,
+  first_name,
   email,
   mobile,
   password,
@@ -57,7 +67,7 @@ const authSubmitActionCreator = (
 ) => {
   return {
     ...authSubmitForm,
-    fname: fname,
+    first_name: first_name,
     email: email,
     mobile: mobile,
     password: password,
@@ -93,16 +103,42 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitSignUpForm: (fname, email, mobile, password, confirm_password) => {
-      dispatch(
-        authSubmitActionCreator(
-          fname,
-          email,
-          mobile,
-          password,
-          confirm_password
-        )
-      );
+    resetReduxState: () => {
+      dispatch(authReset);
+    },
+    submitSignUpForm: (
+      first_name,
+      email,
+      mobile,
+      password,
+      confirm_password
+    ) => {
+      const url = "http://localhost/reactjs/apis/addRegistration.php";
+      const data = { first_name, email, mobile, password, confirm_password };
+      const options = {
+        header: { "content-type": "multipart/json", Authorization: "my-token" },
+        xsrfCookieName: "XSRF-TOKEN1",
+        xsrfHeaderName: "X-XSRF-TOKEN2",
+      };
+      axios.post(url, data, options).then((res) => {
+        console.log(res);
+        if (res.status == 200) {
+          if (res.data.status == "success") {
+            // alert("you are registered successfully..");
+            dispatch(
+              authSubmitActionCreator(
+                first_name,
+                email,
+                mobile,
+                password,
+                confirm_password
+              )
+            );
+          } else {
+            alert(res.data.message);
+          }
+        }
+      });
     },
   };
 };
@@ -117,6 +153,7 @@ const SignUp = (props) => {
   // console.log("start");
   // console.log(props);
   // console.log("end");
+  // console.log(useLocation());
   const [inputVals, handleInputChange] = useState({});
   const [formValid, setValidation] = useState({ isValid: true });
   const handleSubmit = (event) => {
@@ -148,16 +185,29 @@ const SignUp = (props) => {
   useEffect(() => {
     setShowAlert(true);
     formEl.current.reset();
-    return () => {};
+    console.log("resetting..");
   }, [store.getState().authActionReducer.authSubmit]);
+
+  useEffect(() => {
+    return () => {
+      props.resetReduxState(); //redux state clean up
+      console.log("resetting redux state...");
+    };
+  }, []);
+
+  const setStatusAlert = () => {
+    props.resetReduxState(); //redux state clean up
+    setShowAlert(false);
+  };
   const formEl = useRef();
+
   return (
     <div
       className="container m-2"
       style={{ display: "block", justifyContent: "center" }}
     >
       <Alert
-        onClose={() => setShowAlert(false)}
+        onClose={() => setStatusAlert()}
         dismissible
         variant="success"
         style={{
