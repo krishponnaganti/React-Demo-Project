@@ -13,7 +13,6 @@ export default function ResumePdf() {
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault(); 
   });
-
   /*When document gets loaded successfully*/
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
