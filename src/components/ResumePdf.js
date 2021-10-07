@@ -11,7 +11,7 @@ export default function ResumePdf() {
 
   /*To Prevent right click on screen*/
   document.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
+    event.preventDefault(); 
   });
 
   /*When document gets loaded successfully*/
