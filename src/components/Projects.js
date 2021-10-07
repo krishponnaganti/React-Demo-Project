@@ -121,7 +121,7 @@ const Projects = () => {
                 Description:
                 {project.description}
               </Card.Text>
-              <Card.Link href={project.link}>{project.title}</Card.Link>
+              <Card.Link href={project.website} target="_new">{project.title}</Card.Link>
             </Card.Body>
           </Card>
         );

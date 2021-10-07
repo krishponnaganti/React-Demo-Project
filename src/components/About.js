@@ -10,7 +10,7 @@ const About = () => {
         "Finalizing module and providing timiles",
         "Starting develeopment to fulfill all requirement in production",
         "Sharing knowledge to the team and helping to resolve project technincal issues if any",
-        "PreCparing database architecture like creation of tables and it's structure",
+        "Preparing database architecture like creation of tables and it's structure",
         "Moving to Quality Control team to start QA on it",
         "Collecting feedback and resolving and roll out final build into production",
       ],
@@ -27,7 +27,7 @@ const About = () => {
            style={{ width: "" }}
            className="m-2"
          >
-           <Card.Header>Working at {exp.company}.</Card.Header>
+           <Card.Header>Working at {exp.company}</Card.Header>
            <Card.Body>
              <Card.Title>Role</Card.Title>
              <Card.Text>{exp.role}</Card.Text>
