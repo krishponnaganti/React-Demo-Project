@@ -9,7 +9,7 @@ const Welcome=()=>{
             onClose={() => setShow(false)}
             show={show}
             delay={9000}
-            autohide
+            /* autohide */
           >
             <Toast.Header>
               <img
@@ -20,7 +20,7 @@ const Welcome=()=>{
               <strong className="me-auto">Welcome</strong>
               {/* <small>11 mins ago</small> */}
             </Toast.Header>
-            <Toast.Body>Hello, visitor! hope you are doing great.. Please check my page..</Toast.Body>
+            <Toast.Body>Hello, visitor! hope you are doing great.. Please check my window..</Toast.Body>
           </Toast>
         </ToastContainer>
       </>

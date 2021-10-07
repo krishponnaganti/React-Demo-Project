@@ -10,13 +10,15 @@ import {
   Row,
   Col,  
 } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link ,NavLink} from "react-router-dom";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
 
 
 import ErrorBoundary from "../components/ErrorBoundary";
 import DocumentMeta from "react-document-meta";
+import NavItem from "@restart/ui/esm/NavItem";
+import { nodeName } from "jquery";
 const Experience=React.lazy(()=>import("../components/Experience"))
 const Blog =React.lazy(()=>import("../components/Blog"))
 const About = React.lazy(() => import("../components/About"));
@@ -55,7 +57,7 @@ const Header = (props) => {
   const pathUrl = window.location.pathname.replace("/", "");
   const [active, setActiveMenu] = useState(pathUrl);
   return (
-    <div>
+    <>
       <DocumentMeta {...meta} />
       <Router>
         <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
@@ -71,6 +73,7 @@ const Header = (props) => {
                 activeKey={active}
                 onSelect={(selectedKey) => setActiveMenu(selectedKey)}
               >
+                
                 <Nav.Link eventKey="home">
                   <Link to="/home" style={getClassStyle.removeTextDecoration}>
                     Home
@@ -128,7 +131,7 @@ const Header = (props) => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <div className="row">
+        <div className="">
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path="/">
@@ -160,12 +163,12 @@ const Header = (props) => {
               <Route path="/signup">
                 <AppWrapper />
               </Route>
-              {/* <Route path="*" component={NotFound} /> */}
+              <Route path="*" component={NotFound} />
             </Switch>
           </Suspense>
         </div>
       </Router>
-    </div>
+    </>
   );
 };
 export default Header;

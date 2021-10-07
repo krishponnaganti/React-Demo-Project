@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
 
-const url = "./documents/ResumeDevRk-converted.pdf";
+const url = `${process.env.PUBLIC_URL}/documents/ResumeDevRk-converted.pdf`;
 
 export default function ResumePdf() {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;

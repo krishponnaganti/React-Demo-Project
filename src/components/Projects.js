@@ -97,7 +97,7 @@ const Projects = () => {
       projects.map((project) => {
         return (
           <Card
-            bg="secondary"
+            bg="dark"
             text="light"
             style={{ width: "" }}
             className="m-2"

@@ -41,7 +41,7 @@ function Home(props) {
   return (
     <>
       <div>
-        <Card bg="secondary" text="light" style={{ width: "" }} className="m-2">
+        <Card bg="light" text="dark" style={{ width: "" }} className="m-2">
           <Card.Header>Skills</Card.Header>
           <Card.Body>
             <Card.Title>Technologies</Card.Title>
@@ -52,7 +52,7 @@ function Home(props) {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card bg="secondary" text="light" style={{ width: "" }} className="m-2">
+        <Card bg="light" text="dark" style={{ width: "" }} className="m-2">
           <Card.Header>Certifications</Card.Header>
           {certifications.map((cert) => {
             return (
