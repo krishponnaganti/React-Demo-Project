@@ -8,7 +8,7 @@ import {
   Navbar,
   Nav,
   Row,
-  Col,
+  Col,  
 } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../components/Home";
@@ -160,7 +160,7 @@ const Header = (props) => {
               <Route path="/signup">
                 <AppWrapper />
               </Route>
-              <Route path="*" component={NotFound} />
+              {/* <Route path="*" component={NotFound} /> */}
             </Switch>
           </Suspense>
         </div>
