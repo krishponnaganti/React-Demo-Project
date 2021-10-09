@@ -1,7 +1,12 @@
 import { Card, Row, CardColumns, Col } from "react-bootstrap";
 import { useRouteMatch } from "react-router-dom";
 import Box from "@material-ui/core/Box";
+import { useEffect } from "react";
 function Home(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // console.log("scroll top");
+  }, []);
   const matchs = useRouteMatch({
     path: "/home",
     strict: true,

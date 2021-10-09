@@ -1,17 +1,29 @@
 import { Card, Row } from "react-bootstrap";
+import { useEffect } from "react";
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("scroll top");
+  }, []);
   const experienceData = [
     {
+      company: "HCL Technologies",
+      role: "Technical Lead",
+      responsibility: [
+        "OnBoarding..."
+      ],
+    },
+    {
       company: "Cartrade Tech Ltd.",
-      role: "Senior Engineer",
+      role: "Senior Software Engineer",
       responsibility: [
         "Getting Requirement from Operations team",
         "Analysing that requirement and collecting pre-requisites",
-        "Finalizing module and providing timiles",
-        "Starting develeopment to fulfill all requirement in production",
+        "Finalizing module and providing timelines",
+        "Starting development as per designed workflow with all requirement in production",
         "Sharing knowledge to the team and helping to resolve project technincal issues if any",
-        "Preparing database architecture like creation of tables and it's structure",
-        "Moving to Quality Control team to start QA on it",
+        "Preparing database architecture like creation of relational tables and it's configuration",
+        "Pushing developed modules to Quality Control team to start QA on it",
         "Collecting feedback and resolving and roll out final build into production",
       ],
     },
@@ -27,7 +39,7 @@ const About = () => {
            style={{ width: "" }}
            className="m-2"
          >
-           <Card.Header>Working at {exp.company}</Card.Header>
+           <Card.Header>{exp.company}</Card.Header>
            <Card.Body>
              <Card.Title>Role</Card.Title>
              <Card.Text>{exp.role}</Card.Text>

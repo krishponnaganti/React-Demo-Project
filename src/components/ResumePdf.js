@@ -33,7 +33,7 @@ export default function ResumePdf() {
 
   return (
     <>
-      <div className="main" >
+      <div className="main"  style={{marginBottom:"50px"}}>
         <Document
           file={url}
           onLoadSuccess={onDocumentLoadSuccess}
@@ -50,12 +50,12 @@ export default function ResumePdf() {
               type="button"
               disabled={pageNumber <= 1}
               onClick={previousPage}
-              className="btn btn-primary"
+              className="btn btn-primary m-1"
             >
               Previous
             </button>
             <button
-              className="btn-primary btn"
+              className="btn-primary m-1 btn"
               type="button"
               disabled={pageNumber >= numPages}
               onClick={nextPage}
