@@ -6,7 +6,32 @@
   height: 40vmin;
   pointer-events: none;
 }
+/* .social-container {
+      background: #eee;
+    padding: 2px 30px;
+} */
+.social-container a{
+  margin:5px;
+}
+a.social:hover {
+  transform: translateY(-2px);
+}
 
+a.youtube {
+  color: #eb3223;
+}
+
+a.facebook {
+  color: #4968ad;
+}
+
+a.twitter {
+  color: #49a1eb;
+}
+
+a.instagram {
+  color: black;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -30,8 +55,8 @@
 
 .blockquote-text {
   font-size: 23px;
-  margin:5px;
-  line-height:27px;
+  margin: 5px;
+  line-height: 27px;
   quotes: "\201C""\201D""\2018""\2019";
 }
 .blockquote-text:before {
