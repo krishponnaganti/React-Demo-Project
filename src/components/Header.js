@@ -102,16 +102,16 @@ const Header = (props) => {
                   </Link>
                 </Nav.Link>
                 {/* <Nav.Link href="/blog">Blog</Nav.Link> */}
-                <Nav.Link eventKey="testimonial">
+                {/* <Nav.Link eventKey="testimonial">
                   <Link
                     to="/testimonial"
                     style={getClassStyle.removeTextDecoration}
                   >
                     Testimonial
                   </Link>
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
-              <Nav
+              {/* <Nav
                 className="ml-auto"
                 variant="pills"
                 activeKey={active}
@@ -127,7 +127,7 @@ const Header = (props) => {
                     Sign in
                   </Link>
                 </Nav.Link>
-              </Nav>
+              </Nav> */}
             </Navbar.Collapse>
           </Container>
         </Navbar>
