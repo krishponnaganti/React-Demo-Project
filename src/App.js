@@ -5,6 +5,7 @@ import ReactGA from "react-ga";
 
 function App() {
   ReactGA.initialize("G-0YFP5Y996K");
+  
   return (
     <>
       <div className="col-md-12">

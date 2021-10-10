@@ -1,9 +1,17 @@
 import { Card, Row, CardColumns, Col } from "react-bootstrap";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useHistory, useLocation } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import { useEffect } from "react";
-
+import ReactGA from "react-ga";
 function Home(props) {
+  let history = useHistory();
+  let location=useLocation();
+  console.log(location);
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // console.log("scroll top");
