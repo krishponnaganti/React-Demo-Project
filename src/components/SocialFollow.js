@@ -5,7 +5,8 @@ import {
   faTwitter,
   faInstagram,
   faLinkedin,
-  faGithub
+  faGithub,
+  faCodepen
 } from "@fortawesome/free-brands-svg-icons";
 const SocialFollow = () => {
   return (
@@ -32,6 +33,13 @@ const SocialFollow = () => {
           target="_blank"
         >
           <FontAwesomeIcon icon={faGithub} size="2x" />
+        </a>
+        <a
+          href="https://codepen.io/krishponnaganti/"
+          className="twitter social"
+          target="_blank"
+        >
+          <FontAwesomeIcon icon={faCodepen} size="2x" />
         </a>
       </div>
     </>

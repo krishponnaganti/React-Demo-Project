@@ -73,7 +73,6 @@ const Header = (props) => {
                 activeKey={active}
                 onSelect={(selectedKey) => setActiveMenu(selectedKey)}
               >
-                
                 <Nav.Link eventKey="home">
                   <Link to="/home" style={getClassStyle.removeTextDecoration}>
                     Home
@@ -101,6 +100,14 @@ const Header = (props) => {
                     Resume
                   </Link>
                 </Nav.Link>
+                <Nav.Link eventKey="blog">
+                  <Link
+                    to="/blog"
+                    style={getClassStyle.removeTextDecoration}
+                  >
+                    Blog
+                  </Link>
+                </Nav.Link>
                 {/* <Nav.Link href="/blog">Blog</Nav.Link> */}
                 {/* <Nav.Link eventKey="testimonial">
                   <Link
@@ -111,13 +118,13 @@ const Header = (props) => {
                   </Link>
                 </Nav.Link> */}
               </Nav>
-              {/* <Nav
+              <Nav
                 className="ml-auto"
                 variant="pills"
                 activeKey={active}
                 onSelect={(selectedKey) => setActiveMenu(selectedKey)}
               >
-                <Nav.Link eventKey="signup">
+                {/* <Nav.Link eventKey="signup">
                   <Link to="/signup" style={getClassStyle.removeTextDecoration}>
                     Sign up
                   </Link>
@@ -126,8 +133,9 @@ const Header = (props) => {
                   <Link to="/signin" style={getClassStyle.removeTextDecoration}>
                     Sign in
                   </Link>
-                </Nav.Link>
-              </Nav> */}
+                </Nav.Link> */}
+              </Nav>
+              <Navbar.Text>Welcome Visitor.</Navbar.Text>
             </Navbar.Collapse>
           </Container>
         </Navbar>
