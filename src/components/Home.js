@@ -9,10 +9,10 @@ function Home(props) {
   let location = useLocation();
   console.log(location);
   history.listen((location) => {
-    console.log("workng...");
+    // console.log("workng...");
     ReactGA.set({ page: location.pathname });
     ReactGA.pageview(location.pathname);
-    console.log("send page view");
+    // console.log("send page view");
   });
   ReactGA.event({
     category: "Home",

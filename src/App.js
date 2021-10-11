@@ -2,14 +2,29 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useHistory,useLocation } from "react-router";
-import ReactGA from "react-ga";
+
 import { useEffect } from "react";
+import { ReactDOM } from "react-dom";
+import ReactGA from "react-ga";
 function App() {
-//  ReactGA.initialize("G-0YFP5Y996K");
-  useEffect(()=>{
-    ReactGA.initialize("UA-209931511-1");
-    ReactGA.pageview("/");
-  },[])
+
+  // useEffect(()=>{
+  //   ReactGA.initialize("UA-209931511-1", { testMode: true, debug: true });
+  //   ReactGA.pageview("/");
+  //   console.log("tracked");
+  // },[])
+  useEffect(() => {
+    const username="sgark";
+    ReactGA.initialize("UA-209931511-1", {
+      gaOptions: {
+        userId: username ? username : "Not-Logged",
+      },
+      cookieDomain: "auto",
+      debug: true,
+    });
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    console.log(ReactGA.ga());
+  }, []);
   return (
     <>
       <div className="col-md-12">
