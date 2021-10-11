@@ -13,6 +13,10 @@ function Home(props) {
     ReactGA.pageview(location.pathname);
     console.log("send page view");
   });
+  ReactGA.event({
+    category: "Home",
+    action: "Visited this page",
+  });
 
   console.log("home page view");
   useEffect(() => {
