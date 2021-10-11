@@ -1,6 +1,9 @@
 import {Navbar,Nav,Container} from "react-bootstrap"
 import SocialFollow from "../components/SocialFollow"
+import {useLocation,useHistory} from "react-router-dom"
+import ReactGA from "react-ga";
 const Footer=()=>{
+     
     return (
       <>
       <div style={{ clear: "both", height: "50px" }}></div>

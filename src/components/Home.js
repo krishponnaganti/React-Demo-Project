@@ -4,19 +4,17 @@ import Box from "@material-ui/core/Box";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
 function Home(props) {
-  ReactGA.initialize("G-0YFP5Y996K");
   let history = useHistory();
-  let location=useLocation();
+  let location = useLocation();
   console.log(location);
   history.listen((location) => {
-    console.log('workng...');
+    console.log("workng...");
     ReactGA.set({ page: location.pathname });
     ReactGA.pageview(location.pathname);
     console.log("send page view");
   });
 
-  
-  console.log('home page view');
+  console.log("home page view");
   useEffect(() => {
     window.scrollTo(0, 0);
     // console.log("scroll top");
