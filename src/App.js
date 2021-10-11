@@ -5,7 +5,7 @@ import { useHistory,useLocation } from "react-router";
 import ReactGA from "react-ga";
 function App() {
 //  ReactGA.initialize("G-0YFP5Y996K");
-ReactGA.initialize("UA-209931511-1");
+  ReactGA.initialize("UA-209931511-1");
   return (
     <>
       <div className="col-md-12">

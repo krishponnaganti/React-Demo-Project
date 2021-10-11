@@ -4,6 +4,7 @@ import Box from "@material-ui/core/Box";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
 function Home(props) {
+  ReactGA.initialize("UA-209931511-1");
   let history = useHistory();
   let location = useLocation();
   console.log(location);
