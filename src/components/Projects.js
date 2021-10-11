@@ -1,15 +1,7 @@
 import { Card } from "react-bootstrap";
 import { useEffect } from "react";
-import {useLocation,useHistory} from "react-router-dom"
-import ReactGA from "react-ga"
+
 const Projects = () => {
-  let history = useHistory();
-  let location = useLocation();
-  // console.log(location);
-  history.listen((location) => {
-    ReactGA.set({ page: location.pathname });
-    ReactGA.pageview(location.pathname);
-  });
   useEffect(()=>{
      window.scrollTo(0,0);
      console.log('scroll top');

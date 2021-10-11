@@ -1,6 +1,11 @@
 import { Toast, ToastContainer } from "react-bootstrap";
 import {useState} from 'react';
+import ReactGA from 'react-ga';
 const Welcome=()=>{
+  ReactGA.event({
+    category: "Welcome",
+    action: "Visited your window",
+  });
     const [show,setShow]=useState(true);
     return (
       <>
