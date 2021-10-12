@@ -24,10 +24,8 @@ function App() {
     });
     ReactGA.pageview(window.location.pathname + window.location.search);
     console.log(ReactGA.ga());
-    // console.log
   }, []);
-  
-   
+
   return (
     <>
       <div className="col-md-12">

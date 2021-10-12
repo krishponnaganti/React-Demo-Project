@@ -73,41 +73,30 @@ const Header = (props) => {
                 activeKey={active}
                 onSelect={(selectedKey) => setActiveMenu(selectedKey)}
               >
-                <Nav.Link eventKey="home">
+                <Nav.Link as={NavLink} to="/home" exact>
+                  Home
+                </Nav.Link>
+                {/* <Nav.Link eventKey="home">
                   <Link to="/home" style={getClassStyle.removeTextDecoration}>
                     Home
                   </Link>
-                </Nav.Link>
+                </Nav.Link> */}
                 {/* <Nav.Link href="/about">About</Nav.Link> */}
-                <Nav.Link eventKey="about">
-                  <Link to="/about" style={getClassStyle.removeTextDecoration}>
-                    Work Place
-                  </Link>
+                <Nav.Link as={NavLink} to="/about" exact>
+                  About
                 </Nav.Link>
-                <Nav.Link eventKey="projects">
-                  <Link
-                    to="/projects"
-                    style={getClassStyle.removeTextDecoration}
-                  >
-                    Projects
-                  </Link>
+                <Nav.Link as={NavLink} to="/projects" exact>
+                  Projects
                 </Nav.Link>
-                <Nav.Link eventKey="experience">
-                  <Link
-                    to="/experience"
-                    style={getClassStyle.removeTextDecoration}
-                  >
-                    Resume
-                  </Link>
+                <Nav.Link as={NavLink} to="/experience" exact>
+                  Resume
                 </Nav.Link>
-                <Nav.Link eventKey="blog">
-                  <Link
-                    to="/blog"
-                    style={getClassStyle.removeTextDecoration}
-                  >
-                    Blog
-                  </Link>
+
+                <Nav.Link as={NavLink} to="/blog" exact>
+                  Blog
                 </Nav.Link>
+
+               
                 {/* <Nav.Link href="/blog">Blog</Nav.Link> */}
                 {/* <Nav.Link eventKey="testimonial">
                   <Link
