@@ -95,8 +95,10 @@ const Header = (props) => {
                 <Nav.Link as={NavLink} to="/blog" exact>
                   Blog
                 </Nav.Link>
+                {/* <Nav.Link as={NavLink} to="/testimonial" exact>
+                  Testimonial
+                </Nav.Link> */}
 
-               
                 {/* <Nav.Link href="/blog">Blog</Nav.Link> */}
                 {/* <Nav.Link eventKey="testimonial">
                   <Link

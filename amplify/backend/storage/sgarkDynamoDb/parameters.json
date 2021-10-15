@@ -1,0 +1,7 @@
+{
+    "tableName": "testimonials",
+    "partitionKeyName": "id",
+    "partitionKeyType": "N",
+    "sortKeyName": "first_name",
+    "sortKeyType": "S"
+}

@@ -7,8 +7,6 @@ function Home(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
     // console.log("scroll top");
-      
- 
   }, []);
   const matchs = useRouteMatch({
     path: "/home",
@@ -20,15 +18,15 @@ function Home(props) {
     "HTML",
     "CSS",
     "JavaScript",
+    "JQuery",
     "ReactJs",
     "Redux",
     "PHP",
-    "RestFull Service (APIs)",
+    "RESTful Services",
     "REDIS",
-    "JQuery",
     "MySQL",
     "MariaDB",
-    "AWS (S3 , dynamo DB)",
+    "AWS (S3 , Dynamo DB, Amplify, Lambda)",
     "GIT",
   ];
   const certifications = [

@@ -3,13 +3,20 @@ import axios from "axios";
 import React, { useState, useMemo, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import AddTestimonial from "../components/AddTestimonial";
+import Amplify from "aws-amplify";
+import {API} from 'aws-amplify';
+
+import { data } from "jquery";
+import awsmobile from "../aws-exports"; 
+Amplify.configure(awsmobile);
+
 const Testimonial = () => {
   const [testimonialsAvail, setTestimonials] = useState([{}]);
   const [showTestiCards, setTestiCards] = useState(false);
   var randNum = 0;
   const [testimonial_one, setSingleTestimonial] = useState({});
   const [randNums, setIntervalCust] = useState(0);
-  React.useEffect(() => {
+ /*  React.useEffect(() => {
     console.log("mounted");
     const options = {
       headers: { "content-type": "json", Authorization: "my-token232hhasf" },
@@ -30,12 +37,42 @@ const Testimonial = () => {
 
     /* return () => {
       setTestimonials([{}]); // This worked for me
+    }; 
+  }, []); */
+  
+  React.useEffect(() => {
+    console.log("mounted");
+    const apiName = "apitestimonial";
+    const path = "/addTestimonial";
+    const myInit = {
+      // OPTIONAL
+      headers: {}, // OPTIONAL
+      response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {
+        // OPTIONAL
+        id: 9,
+      },
+    };
+
+    API.get(apiName, path, myInit)
+      .then((response) => {
+        console.log(response);
+        // Add your code here
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    // var i = 0;
+
+    /* return () => {
+      setTestimonials([{}]); // This worked for me
     }; */
   }, []);
 
+
   useEffect(() => {
     if (testimonialsAvail.length) {
-      console.log("working..");
+      // console.log("working..");
       console.log(testimonialsAvail);
 
       const interval_1 = setInterval(() => {
@@ -57,6 +94,31 @@ const Testimonial = () => {
       setTestiCards(true);
     }
   }, [testimonial_one]);
+
+  const submitTestimonialAmplifyAPI= async (event)=>{
+    event.preventDefault();
+    console.log(formData);
+    console.log("api");
+    
+    // const apiData = await API.post("apitestimonial", "/addTestimonial",data);
+    API.post("apitestimonial", "/addTestimonial", {
+      body: { id: new Date().getTime(), ...formData },
+    })
+      .then((response) => {
+         if(response.success){
+           setTestimonials([{ ...formData }, ...testimonialsAvail]);
+           alert(
+             "Your tesimonial submitted successfully.Thanks for showing interest."
+           );
+           event.target.reset();
+         }
+      })
+      .catch((error) => {
+        alert("Oops! your testimonial could not be submitted.Please try after sometime.");
+        console.log(error.response.data)});
+
+    console.log("added testimonial");
+  }
   const submitTestimonial = (event) => {
     event.preventDefault();
     // event.stopPropegation();
@@ -114,7 +176,7 @@ const Testimonial = () => {
       >
         
           <AddTestimonial
-            handleSubmitTestimonial={submitTestimonial}
+            handleSubmitTestimonial={submitTestimonialAmplifyAPI}
             handleInputVals={setInputVals}
           />
         

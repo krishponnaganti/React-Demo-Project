@@ -1,0 +1,36 @@
+{
+    "paths": [
+        {
+            "name": "/addTestimonial",
+            "lambdaFunction": "testimonialInfo",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/addTestimonial"
+        }
+    ],
+    "resourceName": "apitestimonial",
+    "apiName": "apitestimonial",
+    "functionArns": [
+        {
+            "lambdaFunction": "testimonialInfo"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-reactdemoproject-staging-105353-authRole",
+        "unAuthRoleName": "amplify-reactdemoproject-staging-105353-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "testimonialInfo",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "ce5db5dc"
+}
