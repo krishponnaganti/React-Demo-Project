@@ -2,10 +2,10 @@ import { Card } from "react-bootstrap";
 import { useEffect } from "react";
 
 const Projects = () => {
-  useEffect(()=>{
-     window.scrollTo(0,0);
-     console.log('scroll top');
-  },[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("scroll top");
+  }, []);
   const projects = [
     {
       title: "Cartradeexchange",
@@ -144,20 +144,33 @@ const Projects = () => {
       ],
       website: "https://kotak.cartradeexchange.com/login",
     },
+    {
+      title: "My Blog",
+      client: "",
+      description: "Explores myself",
+      technologies: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "ReactJs",
+        "Redux",
+        "PHP",
+        "RESTful Services",
+        "GIT",
+        "AWS (S3,Dynamo db,Amplify)",
+      ],
+      roles: [
+        "Developer"
+      ],
+      website: "https://www.sgark.info",
+    },
   ];
-   let i = 1;
+  let i = 1;
   return (
     <div>
-      {
-     
-      projects.map((project) => {
+      {projects.map((project) => {
         return (
-          <Card
-            bg="dark"
-            text="light"
-            style={{ width: "" }}
-            className="m-2"
-          >
+          <Card bg="dark" text="light" style={{ width: "" }} className="m-2">
             <Card.Header>PROJECT {i++}</Card.Header>
             <Card.Body>
               <Card.Title>{project.title}</Card.Title>
@@ -173,10 +186,10 @@ const Projects = () => {
                   <li>{role}</li>
                 ))}
               </Card.Text>
-              <Card.Text>
-                Description : {project.description}
-              </Card.Text>
-              <Card.Link href={project.website} target="_new">{project.title}</Card.Link>
+              <Card.Text>Description : {project.description}</Card.Text>
+              <Card.Link href={project.website} target="_new">
+                {project.title}
+              </Card.Link>
             </Card.Body>
           </Card>
         );
