@@ -1,10 +1,12 @@
 import { Card, Row } from "react-bootstrap";
 import { useEffect } from "react";
-
+import ReactGA from "react-ga"
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("scroll top");
+    // console.log("scroll top");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    // console.log(ReactGA.ga());
   }, []);
   const experienceData = [
     {
@@ -27,7 +29,6 @@ const About = () => {
       ],
     },
   ];
-
   return (
     <div>
       {experienceData.map((exp) => {

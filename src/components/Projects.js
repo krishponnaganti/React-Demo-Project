@@ -1,10 +1,12 @@
 import { Card } from "react-bootstrap";
 import { useEffect } from "react";
-
+import ReactGA from "react-ga"
 const Projects = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("scroll top");
+    // console.log("scroll top");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    // console.log(ReactGA.ga());
   }, []);
   const projects = [
     {
@@ -61,7 +63,6 @@ const Projects = () => {
       ],
       website: "https://ops.adroitauto.in/",
     },
-
     {
       title: "HDFC Asset Secure",
       client: "HDFC",
@@ -116,7 +117,6 @@ const Projects = () => {
       ],
       website: "https://samilr2r.com/login",
     },
-
     {
       title: "KOTAK",
       client: "Cartrade",
@@ -159,9 +159,7 @@ const Projects = () => {
         "GIT",
         "AWS (S3,Dynamo db,Amplify)",
       ],
-      roles: [
-        "Developer"
-      ],
+      roles: ["Developer"],
       website: "https://www.sgark.info",
     },
   ];
