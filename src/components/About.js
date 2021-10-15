@@ -8,7 +8,7 @@ const About = () => {
   }, []);
   const experienceData = [
     {
-      company: "HCL Technologies",
+      company: "HCL Technologies Ltd.",
       role: "Technical Lead",
       responsibility: ["OnBoarding..."],
     },

@@ -9,12 +9,21 @@ const Footer = () => {
       <div>
         <Navbar bg="dark" variant="dark" expand="lg" fixed="bottom">
           <Container>
-            <Nav className="ml-auto">
+            <Nav>
               <Nav.Item>
                 <Navbar.Text>Connect me here:</Navbar.Text>
               </Nav.Item>
               <Nav.Item>
                 <SocialFollow />
+              </Nav.Item>
+              
+              
+            </Nav>
+            <Nav className="ml-auto">
+              <Nav.Item>
+                <Navbar.Text>Gmail: krishponnaganti@gmail.com</Navbar.Text>
+                <br/>
+                <Navbar.Text>Contact: 9052040609</Navbar.Text>
               </Nav.Item>
             </Nav>
           </Container>
