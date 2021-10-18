@@ -23,7 +23,7 @@ const Footer = () => {
               <Nav.Item>
                 <Navbar.Text>Gmail: krishponnaganti@gmail.com</Navbar.Text>
                 <br/>
-                <Navbar.Text>Contact: 9052040609</Navbar.Text>
+                <Navbar.Text>Contact: 9052040609</Navbar.Text> 
               </Nav.Item>
             </Nav>
           </Container>
