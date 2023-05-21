@@ -50,13 +50,15 @@ const Testimonial = () => {
       response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
       queryStringParameters: {
         // OPTIONAL
-        id: 9,
+        id: "9",
       },
     };
 
     API.get(apiName, path, myInit)
       .then((response) => {
+         console.log("getting all");
         console.log(response);
+       
         // Add your code here
       })
       .catch((error) => {

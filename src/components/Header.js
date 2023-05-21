@@ -27,6 +27,7 @@ const Welcome = React.lazy(() => import("../components/Welcome"));
 const Sample = React.lazy(() => import("../components/Sample"));
 const AppWrapper = React.lazy(() => import("../components/SignUp"));
 const Testimonial = React.lazy(() => import("../components/Testimonial"));
+const Dashboard = React.lazy(()=>import("../components/Dashboard"))
 const NotFound = React.lazy(() => import("../components/NotFound"));
 const Header = (props) => {
   const classStyle = () => ({
@@ -95,10 +96,12 @@ const Header = (props) => {
                 <Nav.Link as={NavLink} to="/blog" exact>
                   Blog
                 </Nav.Link>
-                {/* <Nav.Link as={NavLink} to="/testimonial" exact>
+                <Nav.Link as={NavLink} to="/testimonial" exact>
                   Testimonial
-                </Nav.Link> */}
-
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/dashboard">
+                  Dashboard
+                </Nav.Link>
                 {/* <Nav.Link href="/blog">Blog</Nav.Link> */}
                 {/* <Nav.Link eventKey="testimonial">
                   <Link
@@ -138,6 +141,9 @@ const Header = (props) => {
               </Route>
               <Route path="/testimonial">
                 <Testimonial />
+              </Route>
+              <Route path="/dashboard">
+                <Dashboard />
               </Route>
               {/* <Route path="/home">
                     <Home />
